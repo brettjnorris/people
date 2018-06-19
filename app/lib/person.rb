@@ -1,9 +1,30 @@
 class Person
   def self.all
-    response = SalesforceApi.fetch("people.json")
-    json = JSON.parse(response.body)
+    people = []
 
-    json["data"].present? ? json["data"] : []
+    page_size = 100
+    current_page = 1
+
+    loop do
+      break if current_page.nil?
+
+      response = SalesforceApi.fetch("people.json", {
+        per_page: page_size,
+        page: current_page
+      })
+
+      json = JSON.parse(response.body)
+      data = json["data"]
+      people = people.push(*data) if data.present?
+
+      if paging = json["metadata"]["paging"]
+        current_page = paging["next_page"]
+      else
+        current_page = nil
+      end
+    end
+
+    people
   end
 
   def self.character_frequency
