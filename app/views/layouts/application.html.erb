@@ -2,10 +2,18 @@
 <html>
 <head>
   <title>SalesLoft Integration</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <%= stylesheet_link_tag 'application', media: 'all' %>
 </head>
 <body>
 
-<%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 
+  <%= javascript_include_tag 'application' %>
 </body>
 </html>
