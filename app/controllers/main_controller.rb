@@ -1,5 +1,5 @@
 class MainController < ApplicationController
   def index
-    render text: "", layout: "application"
+    @people = Person.all
   end
 end

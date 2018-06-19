@@ -1,1 +1,18 @@
-<div id="root"></div>
+<h1>People</h1>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Job Title</th>
+  </thead>
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person["display_name"] %></td>
+        <td><%= person["email_address"] %></td>
+        <td><%= person["title"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
