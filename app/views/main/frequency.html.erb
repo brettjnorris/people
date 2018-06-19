@@ -1,0 +1,16 @@
+<h1>People</h1>
+
+<table>
+  <thead>
+    <th>Character</th>
+    <th>Count</th>
+  </thead>
+  <tbody>
+    <% @character_counts.each do |character, count| %>
+      <tr>
+        <td><%= character %></td>
+        <td><%= count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

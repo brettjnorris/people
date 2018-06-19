@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
 
   root to: "main#index"
+  
+  get :frequency, to: "main#frequency"
 end
