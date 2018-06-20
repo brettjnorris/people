@@ -1,10 +1,14 @@
 <h1>Possible Duplicates</h1>
 
-<table class="table">
-  <% @duplicates.each do |dupe| %>
-    <tr>
-      <td><%= dupe.first["email_address"] %></td>
-      <td><%= dupe.second["email_address"] %></td>
-    </tr>
-  <% end %>
-</table>
+<% if @duplicates.length > 0 %>
+  <table class="table">
+    <% @duplicates.each do |dupe| %>
+      <tr>
+        <td><%= dupe.first["email_address"] %></td>
+        <td><%= dupe.second["email_address"] %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>No duplicate email addresses found</p>
+<% end %>
