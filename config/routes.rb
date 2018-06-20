@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   root to: "main#index"
   
   get :frequency, to: "main#frequency"
+  get :duplicates, to: "main#duplicates"
 end
